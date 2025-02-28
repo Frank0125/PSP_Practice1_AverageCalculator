@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 using namespace std;
 
 #pragma region Encabezado
@@ -16,7 +17,7 @@ float averageCalculator(float list[], int n) {
 }
 
 int main() {
-    try{
+    try {
         int n;
         cout << "Ingrese la cantidad de números para calcular la media: ";
         cin >> n;
@@ -35,12 +36,13 @@ int main() {
                 throw invalid_argument("El valor ingresado no es un número real.");
             }
             if (list[i] < 10 || list[i] > 100) {
-                throw invalid_argument("El valor ingresado debe ser mayor o igual a 10" + 
-                    std::string("y menor o igual a 100."));
+                throw invalid_argument("El valor ingresado debe ser mayor o igual" +  
+                    std::string( "a 10 y menor o igual a 100."));
             }
         }
+        cout << "La media de los números ingresados es: " << averageCalculator(list, n) << endl;
         delete[] list;  
-    } catch (exception e) {
+    } catch (const exception& e) {
         cout << "Error: " << e.what() << endl;
     }
     return 0;
