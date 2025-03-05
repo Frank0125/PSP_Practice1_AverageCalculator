@@ -1,5 +1,6 @@
 #include <iostream>
 #include <stdexcept>
+#include "../Calculator/Calculator.hpp"
 using namespace std;
 
 #pragma region Encabezado
@@ -7,18 +8,10 @@ using namespace std;
 // Calculador de Media de Números
 #pragma endregion 
 
-//Función que calcula la media de un arreglo de números reales
-float averageCalculator(float list[], int n) {
-    float sum = 0;
-    for (int i = 0; i < n; i++) {
-        sum += list[i];
-    }
-    return sum / n;
-}
-
 int main() {
     try {
         int n;
+        Calculator c;
         cout << "Ingrese la cantidad de números para calcular la media: ";
         cin >> n;
         if (cin.fail()) {
@@ -40,7 +33,7 @@ int main() {
                     std::string( "a 10 y menor o igual a 100."));
             }
         }
-        cout << "La media de los números ingresados es: " << averageCalculator(list, n) << endl;
+        cout << "La media de los números ingresados es: " << c.averageCalculator(list, n) << endl;
         delete[] list;  
     } catch (const exception& e) {
         cout << "Error: " << e.what() << endl;
