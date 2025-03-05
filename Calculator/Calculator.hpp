@@ -1,5 +1,5 @@
 #pragma once
-
+#include "math.h"
 class Calculator {
     public:
         #pragma region AverageCalculator
@@ -19,14 +19,13 @@ class Calculator {
             float sum = 0;
             float avg = averageCalculator(list, n);
             float* diff = new float[n];
-            for (int i; i < n; i++) {
+            for (int i = 0; i < n; i++) {
                 diff[i] = list[i] - avg;
                 diff[i] = diff[i] * diff[i]; 
+                sum += diff[i];
             }
-            for (int j; j < n; j++) {
-                sum = diff[j];
-            }
-            return (sum / (n - 1));
+            delete[] diff;
+            return pow((sum / (n - 1)), 0.5);
         }
         #pragma endregion
 };
