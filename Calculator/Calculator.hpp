@@ -28,4 +28,17 @@ class Calculator {
             return pow((sum / (n - 1)), 0.5);
         }
         #pragma endregion
+
+        #pragma region StandardScoreCalculator
+        //Función que calcula los puntajes estándar de una lista de números reales
+        float* standScoreCalculator(float list[], int n) {
+            float* values = new float[n];
+            float avg = this->averageCalculator(list, n); //THIS apuntador para mejor memoria sisisi
+            float sta = this->standDevCalculator(list, n);
+            for (int i = 0; i < n; i++) {
+                values[i] = ((list[i] - avg) / sta);
+            }
+            return values;
+        }
+        #pragma endregion
 };
