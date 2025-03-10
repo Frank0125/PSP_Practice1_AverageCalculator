@@ -35,8 +35,9 @@ int main() {
             }
         }
         cout<<"La desviación estándar de la lista dada es: " << c.standDevCalculator(list, n);
-    } catch(const exception& e) {
-        cout << "Error: " << e.what() << endl;
+    } 
+        catch(const exception& e) {
+            cout << "Error: " << e.what() << endl;
     }
     return 0;
 }

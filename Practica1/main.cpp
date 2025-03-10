@@ -35,8 +35,9 @@ int main() {
         }
         cout << "La media de los números ingresados es: " << c.averageCalculator(list, n) << endl;
         delete[] list;  
-    } catch (const exception& e) {
-        cout << "Error: " << e.what() << endl;
+    } 
+        catch (const exception& e) {
+            cout << "Error: " << e.what() << endl;
     }
     return 0;
 }

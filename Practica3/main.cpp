@@ -1,8 +1,12 @@
 #include <iostream>
 #include <stdexcept>
 #include "../Calculator/Calculator.hpp"
-
 using namespace std;
+
+#pragma region Encabezado
+// Francisco Rochín Gómez
+// Calculador de Puntajes Estándar
+#pragma endregion 
 
 int main() {
     try {
@@ -44,8 +48,9 @@ int main() {
         }
         delete list;
         delete zValues;
-    } catch (const exception& e) {
-        cout << "Error: " << e.what() << endl;
+    } 
+        catch (const exception& e) {
+            cout << "Error: " << e.what() << endl;
     }
     return 0;
 }
