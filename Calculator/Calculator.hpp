@@ -1,5 +1,11 @@
 #pragma once
 #include "math.h"
+#include <iostream>
+#include <stdexcept>
+#include "../Calculator/Calculator.hpp"
+
+using namespace std;
+
 class Calculator {
     public:
         #pragma region AverageCalculator
@@ -41,4 +47,25 @@ class Calculator {
             return values;
         }
         #pragma endregion
+
+        #pragma region SampleSizeCalculator 
+        //Función para calcular el tamaño de muestra de una lista de números con un valor de confianza
+        //de 95 y de 99
+        void sampleSizeCalculator(float list[], int size, float maxError) {
+            float n1, n2; //es permitido en el estandar
+            float std = this->standDevCalculator(list, size);
+            //trust 95
+            n1 = ( 1.96 * std ) / maxError;
+            n1 *= n1;
+            //trust 99
+            n2 = ( 2.58 * std ) / maxError;
+            n2 *= n2;
+            
+            cout << "El tamaño de muestra de la lista dada con 95% de confianza es: " << n1
+            << endl;
+            cout << endl;
+            cout << "El tamaño de muestra de la lista dada con 99% de confianza es: " << n2
+            << endl;
+            return;
+        }
 };
